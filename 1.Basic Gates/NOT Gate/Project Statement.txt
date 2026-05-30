@@ -1,0 +1,27 @@
+Rapid urbanization poses escalating challenges in urban flood management, with drainage blockages often going undetected until disaster strikes. This project presents an innovative IoT-driven solution for early detection of water logging in city drainage systems using precision flow sensors and real-time alert mechanisms. Uniquely integrating a flow sensor with a microcontroller, GSM, and display modules, the system can intelligently distinguish between normal and abnormal drainage flow patterns—identifying potential threats before they escalate into full-scale flooding. The empowered system transmits instant notifications to authorities when stagnant water is sensed, dramatically reducing manual surveillance and response times. By enabling cities to respond proactively to drainage blockages, this project marks a crucial step toward making smart, flood-resilient urban environments a practical reality
+
+Urban flooding disrupts daily life and brings serious damage, often due to blocked drainage systems. Traditional detection methods are slow and inefficient, leading to delayed responses. With advancements in IoT, real-time drainage monitoring has become possible. This project uses a flow sensor, microcontroller, GSM module, and display to continuously track drainage flow. When stagnant water is detected, the system instantly alerts authorities, allowing for swift intervention and smarter flood prevention in cities
+
+Waterlogging is a growing problem in cities due to rapid urbanization and poor drainage maintenance. Traditional detection methods are slow and reactive, often leading to flooding before issues are addressed. Advances in IoT allow for real-time monitoring and faster detection of blockages. By using a flow sensor and automated alerts, this project enables early identification of drainage problems. This solution supports smarter city management and reduces the risks of urban flooding
+
+Urban drainage systems are intricate and vulnerable to obstructions from debris and silt. During heavy rainfall, blockages can lead to waterlogging, increasing the risk of urban flooding. Emerging IoT hardware—flow sensors, microcontrollers, GSM modules—enables smarter city infrastructure. By continuously sensing water presence and flow, and instantly communicating anomalies, municipal staff can address issues much faster
+
+To develop an IoT-based system that detects waterlogging in drainage channels using a flow sensor .To instantly alert authorities about blockages through automated SMS notifications .To display real-time drainage status locally for quick diagnostics .To reduce manual inspections and enable faster responses to flooding risks .To create a scalable solution for smarter and safer urban drainage management
+
+System Overview:
+The prototype consists of the following components:Microcontroller (ESP32): Acts as the central controller for sensor data acquisition and communication.Flow Sensor: Measures the rate of water movement in the drainage pipe. If water is present but the flow rate is zero, a warning is triggered.LCD Display: Provides local system status and visualization of sensor readings.GSM Module: Sends SMS alerts to city authorities if a blockage is suspected.GPS Module (if present): Helps pinpoint the exact location for rapid response.Working Principle:The flow sensor is installed in the drainage pipe/channel.The microcontroller continuously reads the flow sensor output.If water presence is detected but flow remains zero for a specified time, the system recognizes a blockage.An alert is shown on the LCD and sent via GSM.System status, including sensor readings, is displayed for live monitoring.Hardware Justification:The image shows a flow sensor at the bottom (labeled), with a microcontroller board (NodeMCU/ESP32), LCD display, GSM module (SIM900), and additional modules on a plywood base, forming the prototype
+
+Testing the assembled prototype demonstrated that the flow sensor provided accurate detection of water movement. Simulating blockages (by halting flow while water remained in the channel), the system responded by displaying “No Flow – Blockage Detected” on the LCD and triggered an SMS alert through the GSM module. The robust circuit design and use of inexpensive, widely available components make this solution scalable for city-wide implementation. Early detection leads to faster clean-up and reduced risk during urban flooding scenarios.
+
+The developed IoT-based drainage waterlogging detection system—featuring a flow sensor, microcontroller, LCD, and GSM—enables real-time block identification. While this prototype is for demonstration, future improvements could include solar-powered modules, integration into municipal IoT dashboards, adding more robust communication protocols, and predictive analytics using accumulated sensor data.
+
+Studies on IoT-based flood management and smart city infrastructure.Manufacturer datasheets for flow sensors and GSM modules.Case studies on urban drainage automation.
+
+
+Components used:
+1.ESP32
+2.LCD
+3.GSM
+4.GPS
+5.FLOW SENSOR
+6.FLOAT SENSOR

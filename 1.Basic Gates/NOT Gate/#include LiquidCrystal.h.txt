@@ -1,0 +1,158 @@
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(25, 26, 27, 32, 33, 13);
+
+#define FLOAT_PIN 23
+#define FLOW_PIN 19
+
+volatile unsigned long pulseCount = 0;
+
+float flowRate = 0.0;
+
+const float PULSES_PER_LITER = 450.0;
+const float BLOCKAGE_THRESHOLD = 0.1;
+
+unsigned long lastSample = 0;
+
+void IRAM_ATTR pulseCounter()
+{
+  pulseCount++;
+}
+
+void setup()
+{
+  Serial.begin(115200);
+
+  lcd.begin(16, 2);
+
+  pinMode(FLOAT_PIN, INPUT_PULLUP);
+  pinMode(FLOW_PIN, INPUT_PULLUP);
+
+  attachInterrupt(
+      digitalPinToInterrupt(FLOW_PIN),
+      pulseCounter,
+      RISING);
+
+  lcd.clear();
+  lcd.print("SYSTEM READY");
+
+  delay(2000);
+}
+
+void loop()
+{
+  bool waterPresent =
+      (digitalRead(FLOAT_PIN) == LOW);
+
+  // Calculate Flow Every 1 Second
+  if (millis() - lastSample >= 1000)
+  {
+    noInterrupts();
+
+    unsigned long pulses = pulseCount;
+    pulseCount = 0;
+
+    interrupts();
+
+    if (waterPresent)
+    {
+      float liters =
+          (float)pulses / PULSES_PER_LITER;
+
+      flowRate = liters * 60.0;
+    }
+    else
+    {
+      flowRate = 0.0;
+    }
+
+    Serial.print("Flow Rate = ");
+    Serial.println(flowRate);
+
+    lastSample = millis();
+  }
+
+  // =========================
+  // CASE 1 : NO WATER
+  // =========================
+  if (!waterPresent)
+  {
+    lcd.clear();
+
+    lcd.setCursor(0, 0);
+    lcd.print("NO WATER");
+
+    lcd.setCursor(0, 1);
+    lcd.print("PRESENT");
+
+    delay(2000);
+
+    lcd.clear();
+
+    lcd.setCursor(0, 0);
+    lcd.print("FLOW=0.0");
+
+    lcd.setCursor(0, 1);
+    lcd.print("L/MIN");
+
+    delay(2000);
+  }
+
+  // =========================
+  // CASE 2 : WATER PRESENT
+  // NO BLOCKAGE
+  // =========================
+  else if (flowRate > BLOCKAGE_THRESHOLD)
+  {
+    lcd.clear();
+
+    lcd.setCursor(0, 0);
+    lcd.print("WATER PRESENT");
+
+    lcd.setCursor(0, 1);
+    lcd.print("NO BLOCKAGE");
+
+    delay(2000);
+
+    lcd.clear();
+
+    lcd.setCursor(0, 0);
+    lcd.print("WATER PRESENT");
+
+    lcd.setCursor(0, 1);
+    lcd.print("FLOW=");
+
+    lcd.print(flowRate, 1);
+
+    delay(2000);
+  }
+
+  // =========================
+  // CASE 3 : BLOCKAGE
+  // =========================
+  else
+  {
+    lcd.clear();
+
+    lcd.setCursor(0, 0);
+    lcd.print("WATER PRESENT");
+
+    lcd.setCursor(0, 1);
+    lcd.print("BLOCKAGEDETECTED");
+
+    delay(2000);
+
+    lcd.clear();
+
+    lcd.setCursor(0, 0);
+    lcd.print("WATER PRESENT");
+
+    lcd.setCursor(0, 1);
+    lcd.print("FLOW=0.0");
+
+    delay(2000);
+
+    // GSM SMS HERE
+    // GPS LOCATION HERE
+  }
+}

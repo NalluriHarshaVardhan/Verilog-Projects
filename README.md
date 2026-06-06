@@ -6,21 +6,24 @@ A collection of Digital Logic and Verilog HDL projects covering combinational ci
 
 ## Project Hierarchy
 
+# Verilog VLSI Projects
+
+```text
 Verilog-VLSI-Projects
 │
 ├── 1_Digital_Logic_Fundamentals
 │   ├── Basic_Gates
 │   │   ├── AND_Gate
 │   │   ├── OR_Gate
-│   │   ├── NOT_Gate
-│   │   ├── NAND_Gate
-│   │   ├── NOR_Gate
-│   │   ├── XOR_Gate
-│   │   └── XNOR_Gate
+│   │   └── NOT_Gate
 │   │
-│   └── Universal_Gates
-│       ├── NAND_Implementations
-│       └── NOR_Implementations
+│   ├── Universal_Gates
+│   │   ├── NAND_Gate
+│   │   └── NOR_Gate
+│   │
+│   └── Special_Gates
+│       ├── XOR_Gate
+│       └── XNOR_Gate
 │
 ├── 2_Combinational_Logic_Circuits
 │   ├── Adders
@@ -39,13 +42,13 @@ Verilog-VLSI-Projects
 │   │   └── Encoder_8x3
 │   │
 │   ├── Multiplexers
-│   │   ├── MUX_4x1
+│   │   └── MUX_4x1
 │   │
 │   ├── Demultiplexers
 │   │   └── DEMUX_1x4
 │   │
 │   ├── Comparators
-│   │   ├── Comparator_nbit
+│   │   └── Comparator_nbit
 │   │
 │   └── Code_Converters
 │       ├── Binary_to_Gray
@@ -102,6 +105,7 @@ Verilog-VLSI-Projects
 │
 └── 9_Image_Processing_Hardware
     └── Sobel_Edge_Detector
+```
 
 ## Tools Used
 - Verilog HDL

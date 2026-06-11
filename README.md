@@ -56,78 +56,13 @@ Verilog-VLSI-Projects
 │       ├── BCD_to_Excess3
 │       ├── Excess3_to_BCD
 │       └── BCD_to_7Segment
-│
-├── 3_Sequential_Logic_Circuits
-│   ├── Latches
-│   │   ├── SR_Latch
-│   │   └── D_Latch
-│   │
-│   ├── Flip_Flops
-│   │   ├── SR_FlipFlop
-│   │   ├── JK_FlipFlop
-│   │   ├── D_FlipFlop
-│   │   └── T_FlipFlop
-│   │
-│   ├── Counters
-│   │   ├── Up_Counter
-│   │   ├── Down_Counter
-│   │   ├── UpDown_Counter
-│   │   └── ModN_Counter
-│   │
-│   └── Shift_Registers
-│       ├── SISO
-│       ├── SIPO
-│       ├── PISO
-│       └── PIPO
-│
-├── 4_Arithmetic_and_Datapath_Design
-│   ├── Carry_Save_Adder
-│   ├── Barrel_Shifter
-│   ├── Booth_Multiplier
-│   └── ALU
-│
-├── 5_FSM_Based_Designs
-│   ├── Sequence_Detector
-│   ├── Digital_Locker
-│   └── Elevator_Controller
-│
-├── 6_Error_Detection_and_Correction
-│   └── Hamming_Code_Generator_and_Detector
-│
-├── 7_Memory_Design
-│   ├── SRAM_Cell_Architecture
-│   ├── Decoder_Based_Single_Port_RAM
-│   ├── FIFO
-│   └── SRAM_Controller
-│
-├── 8_Bus_Protocol_Design
-│   └── APB_GPIO
-│
-└── 9_Image_Processing_Hardware
-    └── Sobel_Edge_Detector
-```
+
 
 ## Tools Used
 - Verilog HDL
 - Vivado
 - GTKWave
 - Git & GitHub
-
----
-
-## Learning Path
-
-→ Gates
-→ Combinational Logic
-→ Sequential Logic
-→ Arithmetic Units
-→ FSM Design
-→ Error Correction
-→ Memory Design
-→ Bus Protocols
-→ Image Processing
-
----
 
 ## Author
 
